@@ -21,10 +21,9 @@ functions:
   dynamo_parallel_loader:
     role: ${ssm:/data-loader/dynamo-parallel-loader/lambda_iam_role/arn}
     events:
-      - cloudwatchEvent:
-          event:
-            detail-type:
-              - "dynamoDataToLoad"
+      - sqs:
+          arn: ${ssm:/parallel-dynamo-loads/dynamo-parallel-loader/sqs_queue/arn}
+          batchSize: 1
     handler: src.dynamo_loader.handler.handler
     package:
       include:

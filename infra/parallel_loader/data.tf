@@ -29,6 +29,20 @@ data "aws_iam_policy_document" "parallel_loader_access_policy" {
   statement {
     effect = "Allow"
     actions = [
+      "s3:PutObject",
+      "s3:GetObject",
+      "s3:GetObjectTagging",
+      "s3:PutObjectTagging",
+      "s3:DeleteObject"
+    ]
+    resources = [
+      "${var.s3_bucket_arn}/*"
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
       "dynamodb:GetItem",
       "dynamodb:PutItem",
       "dynamodb:Query",
@@ -41,4 +55,15 @@ data "aws_iam_policy_document" "parallel_loader_access_policy" {
       "${var.datastore_db_arn}/*",
     ]
   }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "sqs:*"
+    ]
+    resources = [
+      var.loader_queue_arn,
+    ]
+  }
+
 }

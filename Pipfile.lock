@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "59f4ad4beba2b93ee62104aeda5683b37d20a64ee81cadb0ce8d90df9975d174"
+            "sha256": "e4f447967105afa33a99a3ad126b21ab5645b2fed328d78d67928868869f25e6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,13 @@
             ],
             "index": "pypi",
             "version": "==4.3.3"
+        },
+        "pysqs-extended-client": {
+            "hashes": [
+                "sha256:4671baf6970f2dd99f0195144f11c1527fff8741511c5c2bc750dd88cf30c928"
+            ],
+            "index": "pypi",
+            "version": "==0.0.1"
         },
         "python-dateutil": {
             "hashes": [

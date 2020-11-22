@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pynamodb = "*"
 boto3 = "*"
+pysqs-extended-client = "*"
 
 [dev-packages]
 pytest = "*"

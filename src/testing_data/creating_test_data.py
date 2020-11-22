@@ -11,11 +11,19 @@ def make_test_record() -> str:
     return f"{uuid}, {acquisition_date}\n"
 
 
-def make_test_file():
+def make_test_files():
     with open("src/testing_data/outputs/load_file.txt", "w") as f:
         for _ in range(1_000_000):
             f.write(make_test_record())
 
+    with open("src/testing_data/outputs/load_file_small.txt", "w") as f:
+        for _ in range(5000):
+            f.write(make_test_record())
+
+    with open("src/testing_data/outputs/load_file_tiny.txt", "w") as f:
+        for _ in range(500):
+            f.write(make_test_record())
+
 
 if __name__ == "__main__":
-    make_test_file()
+    make_test_files()

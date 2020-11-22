@@ -1,0 +1,36 @@
+default_stages: [commit]
+repos:
+  - repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+      - id: black
+        language_version: python3.8
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: debug-statements
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+        additional_dependencies: ["flake8-print", "flake8-builtins", "flake8-functions"]
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.45.0
+    hooks:
+      - id: terraform_fmt
+
+  - repo: local
+    hooks:
+      - id: run-tests
+        name: Run tests
+        entry: ./bin/run-tests.sh
+        language: script
+        pass_filenames: false
+        stages: [push]

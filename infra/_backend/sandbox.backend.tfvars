@@ -1,6 +1,5 @@
 bucket         = "holyport-consulting-sandbox-terraform-state"
 dynamodb_table = "terraform-lock"
 encrypt        = true
-key            = "flask-cognito/terraform.tfstate"
+key            = "parallel-dynamo-loads/terraform.tfstate"
 region         = "eu-west-2"
-environmnet    = "sandbox"
